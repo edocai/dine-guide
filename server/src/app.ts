@@ -8,9 +8,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/api/v1/restaurants', (req: Request, res: Response) => {
-  res.json({
-    message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄',
-  });
+  res.send('Successful');
 });
 
 export default app;
