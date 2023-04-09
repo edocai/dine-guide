@@ -28,8 +28,18 @@ app.get('/api/v1/restaurants', async (req: Request, res: Response) => {
 });
 
 //GET: Get a Restaurant
-app.get('/api/v1/restaurants/:id', (req: Request, res: Response) => {
-  console.log(req.params);
+app.get('/api/v1/restaurants/:id', async (req: Request, res: Response) => {
+  try {
+    const results = await pool.query('select * from restaurants where id = $1', [req.params.id]);
+    res.status(200).json({
+      status: 'success',
+      data: {
+        restaurant: results.rows[0],
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 //POST: Create a Restaurant
