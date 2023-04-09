@@ -13,8 +13,18 @@ app.use(express.json());
 
 //GET: Get All Restaurants
 app.get('/api/v1/restaurants', async (req: Request, res: Response) => {
-  const results = await pool.query('select * from restaurants');
-  console.log(results);
+  try {
+    const results = await pool.query('select * from restaurants');
+    res.status(200).json({
+      status: 'success',
+      results: results.rows.length,
+      data: {
+        restaurants: results.rows,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 //GET: Get a Restaurant
