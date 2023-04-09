@@ -72,4 +72,18 @@ app.put('/api/v1/restaurants/:id', async (req: Request, res: Response) => {
   }
 });
 
+app.delete('/api/v1/restaurants/:id', async (req: Request, res: Response) => {
+  try {
+    const results = await pool.query('DELETE FROM restaurants WHERE id = $1', [req.params.id]);
+    res.status(204).json({
+      status: 'deleted',
+      data: {
+        restaurants: results.rows[0],
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export default app;
