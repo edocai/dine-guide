@@ -14,7 +14,7 @@ app.use(express.json());
 //GET: Get All Restaurants
 app.get('/api/v1/restaurants', async (req: Request, res: Response) => {
   try {
-    const results = await pool.query('select * from restaurants');
+    const results = await pool.query('SELECT * from restaurants');
     res.status(200).json({
       status: 'success',
       results: results.rows.length,
@@ -30,7 +30,7 @@ app.get('/api/v1/restaurants', async (req: Request, res: Response) => {
 //GET: Get a Restaurant
 app.get('/api/v1/restaurants/:id', async (req: Request, res: Response) => {
   try {
-    const results = await pool.query('select * from restaurants where id = $1', [req.params.id]);
+    const results = await pool.query('SELECT * from restaurants WHERE id = $1', [req.params.id]);
     res.status(200).json({
       status: 'success',
       data: {
@@ -44,9 +44,8 @@ app.get('/api/v1/restaurants/:id', async (req: Request, res: Response) => {
 
 //POST: Create a Restaurant
 app.post('/api/v1/restaurants', async (req: Request, res: Response) => {
-  console.log(req.body);
   try {
-    const results = await pool.query('insert into restaurants (name, location, price_range) values ($1, $2, $3) returning *', [req.body.name, req.body.location, req.body.price_range]);
+    const results = await pool.query('INSERT INTO restaurants (name, location, price_range) VALUES ($1, $2, $3) returning *', [req.body.name, req.body.location, req.body.price_range]);
     res.status(201).json({
       status: 'created',
       data: {
@@ -59,9 +58,18 @@ app.post('/api/v1/restaurants', async (req: Request, res: Response) => {
 });
 
 //PUT: Update Restaurants
-app.put('/api/v1/restaurants/:id', (req: Request, res: Response) => {
-  console.log(req.params);
-  console.log(req.body);
+app.put('/api/v1/restaurants/:id', async (req: Request, res: Response) => {
+  try {
+    const results = await pool.query('UPDATE restaurants SET name = $1, location = $2, price_range = $3 WHERE id = $4 returning *', [req.body.name, req.body.location, req.body.price_range, req.params.id]);
+    res.status(200).json({
+      status: 'updated',
+      data: {
+        restaurant: results.rows[0], 
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 export default app;
