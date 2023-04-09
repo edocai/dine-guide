@@ -43,8 +43,19 @@ app.get('/api/v1/restaurants/:id', async (req: Request, res: Response) => {
 });
 
 //POST: Create a Restaurant
-app.get('/api/v1/restaurants', (req: Request, res: Response) => {
+app.post('/api/v1/restaurants', async (req: Request, res: Response) => {
   console.log(req.body);
+  try {
+    const results = await pool.query('insert into restaurants (name, location, price_range) values ($1, $2, $3) returning *', [req.body.name, req.body.location, req.body.price_range]);
+    res.status(201).json({
+      status: 'created',
+      data: {
+        restaurant: results.rows[0], 
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 //PUT: Update Restaurants
