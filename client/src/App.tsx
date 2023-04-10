@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './routes/Home'
 import RestaurantDetails from './routes/RestaurantDetails'
 import UpdateRestaurant from './routes/UpdateRestaurant'
+import { RestaurantsContextProvider } from './context/RestaurantsContext'
 
 function App() {
 
   return (
-    <>
+    <RestaurantsContextProvider>
       <Router>
         <Routes>
           <Route path='/' element={<Home/>}/>
@@ -15,7 +16,7 @@ function App() {
           <Route path='/restaurants/:id/update' element={<UpdateRestaurant/>}/>
         </Routes>
       </Router>
-    </>
+    </RestaurantsContextProvider>
   )
 }
 
