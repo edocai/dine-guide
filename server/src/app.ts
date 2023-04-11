@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import { pool } from './db';
 
 require('dotenv').config();
@@ -9,6 +10,7 @@ const app = express();
 //middleware
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors());
 
 //GET: Get All Restaurants
 app.get('/api/v1/restaurants', async (req: Request, res: Response) => {
