@@ -44,7 +44,7 @@ const AddRestaurant = () => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default AddRestaurant

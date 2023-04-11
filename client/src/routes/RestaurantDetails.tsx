@@ -5,7 +5,7 @@ const RestaurantDetails = () => {
     <>
       <h1>details</h1>
     </>
-  )
-}
+  );
+};
 
 export default RestaurantDetails

@@ -17,7 +17,7 @@ function App() {
         </Routes>
       </Router>
     </RestaurantsContextProvider>
-  )
-}
+  );
+};
 
 export default App

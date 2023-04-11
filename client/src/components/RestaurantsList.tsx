@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import RestaurantAPI from '../api/RestaurantAPI';
 
 const RestaurantsList = () => {
+
   return (
     <div className="">
       <table className="">
@@ -42,7 +44,7 @@ const RestaurantsList = () => {
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
 export default RestaurantsList

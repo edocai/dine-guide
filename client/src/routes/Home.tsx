@@ -10,7 +10,7 @@ const Home = () => {
       <AddRestaurant />
       <RestaurantsList />
     </>
-  )
-}
+  );
+};
 
 export default Home
