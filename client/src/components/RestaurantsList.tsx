@@ -1,7 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import RestaurantAPI from '../api/RestaurantAPI';
+import { RestaurantsContext } from '../context/RestaurantsContext';
 
 const RestaurantsList = () => {
+  const {restaurants, setRestaurants} = useContext(RestaurantsContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await RestaurantAPI.get('/');
+        setRestaurants(response.data.data.restaurants);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <div className="">

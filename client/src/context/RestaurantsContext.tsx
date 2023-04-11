@@ -1,19 +1,19 @@
 import React, { useState, createContext, ReactNode } from 'react';
 
-interface Restaurant {
+export interface Restaurant {
   name: string;
   location: string;
   price_range: number;
 }
 
-interface RestaurantsContextType {
+export interface RestaurantsContextType {
   restaurants: Restaurant[];
   setRestaurants: React.Dispatch<React.SetStateAction<Restaurant[]>>;
 }
 
 export const RestaurantsContext = createContext<RestaurantsContextType>({
   restaurants: [],
-  setRestaurants: () => {},
+  setRestaurants: () => { },
 });
 
 export const RestaurantsContextProvider = (props: { children: ReactNode }) => {
