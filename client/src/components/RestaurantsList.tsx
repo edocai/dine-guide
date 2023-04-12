@@ -3,7 +3,7 @@ import RestaurantAPI from '../api/RestaurantAPI';
 import { RestaurantsContext } from '../context/RestaurantsContext';
 
 const RestaurantsList = () => {
-  const {restaurants, setRestaurants} = useContext(RestaurantsContext);
+  const { restaurants, setRestaurants } = useContext(RestaurantsContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,30 +32,22 @@ const RestaurantsList = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Pizza Hut</td>
-            <td>New York</td>
-            <td>$$</td>
-            <td>Rating</td>
-            <td>
-              <button className="">Update</button>
-            </td>
-            <td>
-              <button className="">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>mcdonalds</td>
-            <td>New YOrk</td>
-            <td>$$</td>
-            <td>Rating</td>
-            <td>
-              <button className="">Update</button>
-            </td>
-            <td>
-              <button className="">Delete</button>
-            </td>
-          </tr> 
+          {restaurants && restaurants.map(restaurant => {
+            return (
+              <tr>
+                <td>{restaurant.name}</td>
+                <td>{restaurant.location}</td>
+                <td>{'£'.repeat(restaurant.price_range)}</td>
+                <td>Rating</td>
+                <td>
+                  <button className="">Update</button>
+                </td>
+                <td>
+                  <button className="">Delete</button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
