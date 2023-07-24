@@ -34,7 +34,7 @@ const RestaurantsList = () => {
         <tbody>
           {restaurants && restaurants.map(restaurant => {
             return (
-              <tr>
+              <tr key={restaurant.id}>
                 <td>{restaurant.name}</td>
                 <td>{restaurant.location}</td>
                 <td>{'£'.repeat(restaurant.price_range)}</td>
