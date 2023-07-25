@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { SyntheticEvent, useContext, useEffect } from 'react'
 import RestaurantAPI from '../api/RestaurantAPI';
 import { RestaurantsContext } from '../context/RestaurantsContext';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +21,8 @@ const RestaurantsList = () => {
     fetchData();
   }, []);
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (e: SyntheticEvent, id: number) => {
+    e.stopPropagation();
     try {
       const response = await RestaurantAPI.delete(`/${id}`);
       setRestaurants(restaurants.filter(restaurant => {
@@ -31,9 +32,14 @@ const RestaurantsList = () => {
       console.log(error);
     }
   }
-
-  const handleUpdate = async (id: number) => {
+  
+  const handleUpdate = async (e: SyntheticEvent, id: number) => {
+    e.stopPropagation();
     navigate(`/restaurants/${id}/update`);
+  }
+
+  const handleRestaurantDetails = (id: number) => {
+    navigate(`/restaurants/${id}`)
   }
 
   return (
@@ -52,16 +58,16 @@ const RestaurantsList = () => {
         <tbody>
           {restaurants && restaurants.map(restaurant => {
             return (
-              <tr key={restaurant.id}>
+              <tr onClick={() => handleRestaurantDetails(restaurant.id)} key={restaurant.id}>
                 <td>{restaurant.name}</td>
                 <td>{restaurant.location}</td>
                 <td>{'£'.repeat(restaurant.price_range)}</td>
                 <td>Rating</td>
                 <td>
-                  <button onClick={() => handleUpdate(restaurant.id)} className="">Update</button>
+                  <button onClick={(e) => handleUpdate(e, restaurant.id)} className="">Update</button>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(restaurant.id)} className="">Delete</button>
+                  <button onClick={(e) => handleDelete(e, restaurant.id)} className="">Delete</button>
                 </td>
               </tr>
             );
