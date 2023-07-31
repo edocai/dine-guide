@@ -8,6 +8,7 @@ export interface Restaurant {
   rating: number;
   review: string;
   reviews: Restaurant[];
+  restaurant: Restaurant
 }
 export interface Review {
   id: number;

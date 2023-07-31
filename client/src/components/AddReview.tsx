@@ -19,8 +19,8 @@ const AddReview = () => {
         review: reviewText,
         rating,
       });
-      navigate("/");
-      navigate(location.pathname);
+      console.log(response);
+      navigate(0);
     } catch (error) {
       console.log(error);
     }
