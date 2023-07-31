@@ -31,14 +31,19 @@ app.get('/api/v1/restaurants', async (req: Request, res: Response) => {
 //GET: Get a Restaurant
 app.get('/api/v1/restaurants/:id', async (req: Request, res: Response) => {
   try {
-    const results = await pool.query(
+    const restaurant = await pool.query(
       'SELECT * from restaurants WHERE id = $1',
+      [req.params.id],
+    );
+    const reviews = await pool.query(
+      'SELECT * from reviews WHERE id = $1',
       [req.params.id],
     );
     res.status(200).json({
       status: 'success',
       data: {
-        restaurant: results.rows[0],
+        restaurant: restaurant.rows[0],
+        reviews: reviews.rows,
       },
     });
   } catch (error) {
