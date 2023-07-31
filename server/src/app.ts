@@ -104,4 +104,19 @@ app.delete('/api/v1/restaurants/:id', async (req: Request, res: Response) => {
   }
 });
 
+//POST: Add a Review
+app.post('/api/v1/restaurants/:id/addReview', async (req: Request, res: Response) => {
+  try {
+    const newReview = await pool.query('INSERT INTO reviews (restaurant_id, name, review, rating) values ($1, $2, $3, $4) returning *;', [req.params.id, req.body.name, req.body.review, req.body.rating]);
+    res.status(201).json({
+      status: 'success',
+      data: {
+        review: newReview.rows[0],
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export default app;
