@@ -13,7 +13,7 @@ const RestaurantDetailsPage = () => {
     try {      
       const fetchData =async () => {
         const response = await RestaurantAPI.get(`/${id}`);
-        setSelectedRestaurant(response.data.data.restaurant);
+        setSelectedRestaurant(response.data.data);
       }
       fetchData();
     } catch (error) {
@@ -26,7 +26,7 @@ const RestaurantDetailsPage = () => {
       {selectedRestaurant && (
         <>
           <div className=''>
-            <Reviews />
+            <Reviews reviews={selectedRestaurant.reviews} />
           </div>
           <AddReview />
         </>

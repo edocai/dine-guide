@@ -5,6 +5,15 @@ export interface Restaurant {
   name: string;
   location: string;
   price_range: number;
+  rating: number;
+  review: string;
+  reviews: Restaurant[];
+}
+export interface Review {
+  id: number;
+  name: string;
+  rating: number;
+  review: string;
 }
 
 export interface RestaurantsContextType {
