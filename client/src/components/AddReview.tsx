@@ -1,10 +1,9 @@
 import React, { SyntheticEvent, useState } from "react";
 import RestaurantAPI from "../api/RestaurantAPI";
-import { useLocation, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const AddReview = () => {
   const { id } = useParams();
-  const location = useLocation();
   const navigate = useNavigate();
 
   const [name, setName] = useState("");

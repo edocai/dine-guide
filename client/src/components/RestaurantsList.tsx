@@ -1,7 +1,8 @@
 import React, { SyntheticEvent, useContext, useEffect } from 'react'
 import RestaurantAPI from '../api/RestaurantAPI';
-import { RestaurantsContext } from '../context/RestaurantsContext';
+import { Restaurant, RestaurantsContext } from '../context/RestaurantsContext';
 import { useNavigate } from 'react-router-dom';
+import Ratings from './Ratings';
 
 const RestaurantsList = () => {
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
@@ -42,6 +43,18 @@ const RestaurantsList = () => {
     navigate(`/restaurants/${id}`)
   }
 
+  const renderRating = (restaurant: Restaurant) => {
+    if (!restaurant.count) {
+      return <span className="">0 reviews</span>;
+    }
+    return (
+      <>
+        <Ratings rating={restaurant.average_rating} />
+        <span className="">({restaurant.count})</span>
+      </>
+    );
+  };
+
   return (
     <div className="">
       <table className="">
@@ -62,7 +75,7 @@ const RestaurantsList = () => {
                 <td>{restaurant.name}</td>
                 <td>{restaurant.location}</td>
                 <td>{'£'.repeat(restaurant.price_range)}</td>
-                <td>Rating</td>
+                <td>{renderRating(restaurant)}</td>
                 <td>
                   <button onClick={(e) => handleUpdate(e, restaurant.id)} className="">Update</button>
                 </td>
