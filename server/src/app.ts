@@ -15,12 +15,15 @@ app.use(cors());
 //GET: Get All Restaurants
 app.get('/api/v1/restaurants', async (req: Request, res: Response) => {
   try {
-    const results = await pool.query('SELECT * from restaurants');
+    const restaurantRatingsData = await pool.query(
+      'select * from restaurants left join (select restaurant_id, COUNT(*), TRUNC(AVG(rating),1) as average_rating from reviews group by restaurant_id) reviews on restaurants.id = reviews.restaurant_id;',
+    );
+
     res.status(200).json({
       status: 'success',
-      results: results.rows.length,
+      results: restaurantRatingsData.rows.length,
       data: {
-        restaurants: results.rows,
+        restaurants: restaurantRatingsData.rows,
       },
     });
   } catch (error) {
