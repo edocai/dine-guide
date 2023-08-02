@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './routes/Home'
 import RestaurantDetails from './routes/RestaurantDetailsPage'
 import UpdateRestaurant from './routes/UpdateRestaurantPage'
 import { RestaurantsContextProvider } from './context/RestaurantsContext'
+import './index.css'
 
 function App() {
 
