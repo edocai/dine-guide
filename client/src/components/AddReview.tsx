@@ -27,25 +27,25 @@ const AddReview = () => {
   return (
     <div className="mb-2">
       <form action="">
-        <div className="form-row">
-          <div className="form-group col-8">
-            <label htmlFor="name">Name</label>
+        <div className="flex mb-4">
+          <div className="w-2/3 pr-2">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
               id="name"
               placeholder="name"
               type="text"
-              className="form-control"
+              className="border border-gray-400 rounded p-2 w-full focus:outline-none focus:border-blue-500"
             />
           </div>
-          <div className="form-group col-4">
-            <label htmlFor="rating">Rating</label>
+          <div className="w-1/3 pl-2">
+            <label htmlFor="rating" className="block text-sm font-medium text-gray-700">Rating</label>
             <select
               value={rating}
               onChange={(e) => setRating(e.target.value)}
               id="rating"
-              className="custom-select"
+              className="border border-gray-400 rounded p-2 w-full bg-white focus:outline-none focus:border-blue-500"
             >
               <option disabled>Rating</option>
               <option value="1">1</option>
@@ -56,19 +56,19 @@ const AddReview = () => {
             </select>
           </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="Review">Review</label>
+        <div className="mb-4">
+          <label htmlFor="Review" className="block text-sm font-medium text-gray-700">Review</label>
           <textarea
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
             id="Review"
-            className="form-control"
+            className="border border-gray-400 rounded p-2 w-full h-24 focus:outline-none focus:border-blue-500"
           ></textarea>
         </div>
         <button
           type="submit"
           onClick={handleSubmitReview}
-          className="btn btn-primary"
+          className="bg-blue-500 text-white py-2 px-4 rounded-md"
         >
           Submit
         </button>

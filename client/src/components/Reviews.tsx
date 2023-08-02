@@ -16,22 +16,22 @@ interface ReviewsProp {
 
 const Reviews: React.FC<ReviewsProp> = ({ reviews }) => {
   return (
-    <div className="">
+    <div className="flex flex-wrap mb-2">
       {reviews.map((review) => {
         return (
           <div
             key={review.id}              
-            className=""
+            className="bg-blue-500 text-white w-1/3 p-4 rounded-md shadow-md mb-4 mr-4"
             style={{ maxWidth: "30%" }}
           >
-            <div className="">
+            <div className="flex justify-between mb-2">
               <span>{review.name}</span>
               <span>
                 <Ratings rating={review.rating} />
               </span>
             </div>
-            <div className="">
-              <p className="">{review.review}</p>
+            <div>
+              <p className="text-white">{review.review}</p>
             </div>
           </div>
         );

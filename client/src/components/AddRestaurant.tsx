@@ -23,32 +23,32 @@ const AddRestaurant = () => {
   }
 
   return (
-    <div className="">
+    <div className="mb-4 p-10 flex justify-center">
       <form action="">
-        <div className="">
-          <div className="">
+        <div className="flex">
+          <div className="w-full">
             <input
               value={name}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
               type="text"
-              className=""
+              className="border border-gray-400 p-2 w-full"
               placeholder="name"
               />
           </div>
-          <div className="">
+          <div className="w-full">
             <input
               value={location}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLocation(e.target.value)}
-              className=""
+              className="border border-gray-400 p-2 w-full"
               type="text"
               placeholder="location"
               />
           </div>
-          <div className="">
+          <div className="w-full">
             <select
               value={priceRange}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setPriceRange(e.target.value)}
-              className=""
+              className="border border-gray-400 p-2 w-full bg-white"
               >
               <option disabled>Price Range</option>
               <option value="1">£</option>
@@ -61,7 +61,7 @@ const AddRestaurant = () => {
           <button
             onClick={handleSubmit}
             type="submit"
-            className=""
+            className="bg-blue-500 text-white p-2 rounded-md ml-2 w-1/2"
           >
             Add
           </button>

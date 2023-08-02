@@ -45,22 +45,22 @@ const RestaurantsList = () => {
 
   const renderRating = (restaurant: Restaurant) => {
     if (!restaurant.count) {
-      return <span className="">0 reviews</span>;
+      return <span style={{color: '#FEE12B'}}>0 reviews</span>;
     }
     return (
       <>
         <Ratings rating={restaurant.average_rating} />
-        <span className="">({restaurant.count})</span>
+        <span>({restaurant.count})</span>
       </>
     );
   };
 
   return (
-    <div className="">
-      <table className="">
+    <div className="list-group flex justify-center">
+      <table className="table table-hover w-1/2">
         <thead>
-          <tr className="">
-            <th scope="col">Restaurant</th>
+          <tr className="bg-blue-500 text-white">
+            <th className='p-4 ' scope="col">Restaurant</th>
             <th scope="col">Location</th>
             <th scope="col">Price Range</th>
             <th scope="col">Ratings</th>
@@ -71,16 +71,16 @@ const RestaurantsList = () => {
         <tbody>
           {restaurants && restaurants.map(restaurant => {
             return (
-              <tr onClick={() => handleRestaurantDetails(restaurant.id)} key={restaurant.id}>
-                <td>{restaurant.name}</td>
+              <tr onClick={() => handleRestaurantDetails(restaurant.id)} key={restaurant.id} className='bg-slate-600 text-white cursor-pointer'>
+                <td className='p-4'>{restaurant.name}</td>
                 <td>{restaurant.location}</td>
                 <td>{'£'.repeat(restaurant.price_range)}</td>
                 <td>{renderRating(restaurant)}</td>
                 <td>
-                  <button onClick={(e) => handleUpdate(e, restaurant.id)} className="">Update</button>
+                  <button onClick={(e) => handleUpdate(e, restaurant.id)} className="bg-yellow-500 text-white py-1 px-2 rounded-md">Update</button>
                 </td>
                 <td>
-                  <button onClick={(e) => handleDelete(e, restaurant.id)} className="">Delete</button>
+                  <button onClick={(e) => handleDelete(e, restaurant.id)} className="bg-red-500 text-white py-1 px-2 rounded-md">Delete</button>
                 </td>
               </tr>
             );

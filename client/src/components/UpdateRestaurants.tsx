@@ -36,41 +36,41 @@ const UpdateRestaurants = () => {
   return (
     <div>
       <form action="">
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
+        <div className="mb-4">
+          <label htmlFor="name" className='block text-sm font-medium text-gray-700'>Name</label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             id="name"
-            className="form-control"
+            className="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:border-blue-500"
             type="text"
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="location">Location</label>
+        <div className="mb-4">
+          <label htmlFor="location" className='block text-sm font-medium text-gray-700'>Location</label>
           <input
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             id="location"
-            className="form-control"
+            className="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:border-blue-500l"
             type="text"
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="price_range">Price Range</label>
+        <div className="mb-4">
+          <label htmlFor="price_range" className='block text-sm font-medium text-gray-700'>Price Range</label>
           <input
             value={priceRange}
             onChange={(e) => setPriceRange(e.target.value)}
             id="price_range"
-            className="form-control"
+            className="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:border-blue-500"
             type="number"
           />
         </div>
         <button
           type="submit"
           onClick={handleSubmit}
-          className="btn btn-primary"
+          className="bg-blue-500 text-white py-2 px-4 rounded-md"
         >
           Submit
         </button>
