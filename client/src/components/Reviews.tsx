@@ -1,6 +1,5 @@
 import React from 'react'
 import Ratings from './Ratings';
-import { Restaurant } from '../context/RestaurantsContext';
 
 interface Review {
   id: number;
@@ -16,7 +15,7 @@ interface ReviewsProp {
 
 const Reviews: React.FC<ReviewsProp> = ({ reviews }) => {
   return (
-    <div className="flex flex-wrap mb-2">
+    <div className="flex flex-wrap m-4">
       {reviews.map((review) => {
         return (
           <div

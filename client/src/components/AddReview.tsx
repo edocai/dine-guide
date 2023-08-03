@@ -25,10 +25,10 @@ const AddReview = () => {
     }
   };
   return (
-    <div className="mb-2">
+    <div className="m-7">
       <form action="">
         <div className="flex mb-4">
-          <div className="w-2/3 pr-2">
+          <div className="w-4/12 pr-2">
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
             <input
               value={name}
@@ -39,7 +39,7 @@ const AddReview = () => {
               className="border border-gray-400 rounded p-2 w-full focus:outline-none focus:border-blue-500"
             />
           </div>
-          <div className="w-1/3 pl-2">
+          <div className="w-4/12 pl-2">
             <label htmlFor="rating" className="block text-sm font-medium text-gray-700">Rating</label>
             <select
               value={rating}
@@ -56,7 +56,7 @@ const AddReview = () => {
             </select>
           </div>
         </div>
-        <div className="mb-4">
+        <div className="w-4/12">
           <label htmlFor="Review" className="block text-sm font-medium text-gray-700">Review</label>
           <textarea
             value={reviewText}
@@ -68,7 +68,7 @@ const AddReview = () => {
         <button
           type="submit"
           onClick={handleSubmitReview}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md"
+          className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-md"
         >
           Submit
         </button>
