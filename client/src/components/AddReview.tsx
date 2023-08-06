@@ -29,18 +29,18 @@ const AddReview = () => {
       <form action="">
         <div className="flex mb-4">
           <div className="w-4/12 pr-2">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+            <label htmlFor="name" className="block text-sm font-medium text-white pb-1">Name</label>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
               id="name"
-              placeholder="name"
+              placeholder="Name"
               type="text"
               className="border border-gray-400 rounded p-2 w-full focus:outline-none focus:border-blue-500"
             />
           </div>
           <div className="w-4/12 pl-2">
-            <label htmlFor="rating" className="block text-sm font-medium text-gray-700">Rating</label>
+            <label htmlFor="rating" className="block text-sm font-medium text-white pb-1">Rating</label>
             <select
               value={rating}
               onChange={(e) => setRating(e.target.value)}
@@ -57,11 +57,12 @@ const AddReview = () => {
           </div>
         </div>
         <div className="w-4/12">
-          <label htmlFor="Review" className="block text-sm font-medium text-gray-700">Review</label>
+          <label htmlFor="Review" className="block text-sm font-medium text-white pb-1">Review</label>
           <textarea
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
             id="Review"
+            placeholder="Add a Review"
             className="border border-gray-400 rounded p-2 w-full h-24 focus:outline-none focus:border-blue-500"
           ></textarea>
         </div>

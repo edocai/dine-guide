@@ -36,41 +36,41 @@ const UpdateRestaurants = () => {
   return (
     <div>
       <form action="">
-        <div className="m-4">
-          <label htmlFor="name" className='block text-sm font-medium text-gray-700 pb-1'>Name</label>
+        <div className="m-10">
+          <label htmlFor="name" className='block text-sm font-medium pb-1 text-white'>Name</label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             id="name"
-            className="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:border-blue-500"
+            className="border border-gray-400 p-2 w-1/3 rounded-md focus:outline-none focus:border-blue-500"
             type="text"
           />
         </div>
 
-        <div className="m-4">
-          <label htmlFor="location" className='block text-sm font-medium text-gray-700 pb-1'>Location</label>
+        <div className="m-10">
+          <label htmlFor="location" className='block text-sm font-medium pb-1 text-white'>Location</label>
           <input
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             id="location"
-            className="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:border-blue-500l"
+            className="border border-gray-400 p-2 w-1/3 rounded-md focus:outline-none focus:border-blue-500l"
             type="text"
           />
         </div>
-        <div className="m-4">
-          <label htmlFor="price_range" className='block text-sm font-medium text-gray-700 pb-1'>Price Range</label>
+        <div className="m-10">
+          <label htmlFor="price_range" className='block text-sm font-medium pb-1 text-white'>Price Range</label>
           <input
             value={priceRange}
             onChange={(e) => setPriceRange(e.target.value)}
             id="price_range"
-            className="border border-gray-400 p-2 w-full rounded-md focus:outline-none focus:border-blue-500"
+            className="border border-gray-400 p-2 rounded-md focus:outline-none focus:border-blue-500"
             type="number"
           />
         </div>
         <button
           type="submit"
           onClick={handleSubmit}
-          className="bg-blue-500 text-white py-2 px-4 mt-2 mr-4 ml-4 mb-4 rounded-md"
+          className="bg-blue-500 text-white py-2 px-4 mt-1 mr-10 ml-10 rounded-md"
         >
           Submit
         </button>

@@ -57,10 +57,10 @@ const RestaurantsList = () => {
 
   return (
     <div className="list-group flex justify-center">
-      <table className="table table-hover w-1/2">
+      <table className="table table-hover w-1/2 mb-4 text-center">
         <thead>
           <tr className="bg-blue-500 text-white">
-            <th className='p-4 ' scope="col">Restaurant</th>
+            <th className='p-4' scope="col">Restaurant</th>
             <th scope="col">Location</th>
             <th scope="col">Price Range</th>
             <th scope="col">Ratings</th>
