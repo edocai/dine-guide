@@ -36,8 +36,8 @@ const UpdateRestaurants = () => {
   return (
     <div>
       <form action="">
-        <div className="mb-4">
-          <label htmlFor="name" className='block text-sm font-medium text-gray-700'>Name</label>
+        <div className="m-4">
+          <label htmlFor="name" className='block text-sm font-medium text-gray-700 pb-1'>Name</label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -47,8 +47,8 @@ const UpdateRestaurants = () => {
           />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="location" className='block text-sm font-medium text-gray-700'>Location</label>
+        <div className="m-4">
+          <label htmlFor="location" className='block text-sm font-medium text-gray-700 pb-1'>Location</label>
           <input
             value={location}
             onChange={(e) => setLocation(e.target.value)}
@@ -57,8 +57,8 @@ const UpdateRestaurants = () => {
             type="text"
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="price_range" className='block text-sm font-medium text-gray-700'>Price Range</label>
+        <div className="m-4">
+          <label htmlFor="price_range" className='block text-sm font-medium text-gray-700 pb-1'>Price Range</label>
           <input
             value={priceRange}
             onChange={(e) => setPriceRange(e.target.value)}
@@ -70,7 +70,7 @@ const UpdateRestaurants = () => {
         <button
           type="submit"
           onClick={handleSubmit}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md"
+          className="bg-blue-500 text-white py-2 px-4 mt-2 mr-4 ml-4 mb-4 rounded-md"
         >
           Submit
         </button>
